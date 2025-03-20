@@ -1,0 +1,61 @@
+/* 全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+/* スマホサイズの枠 */
+.container {
+    width: 90%; /* 画面の90%に収める */
+    max-width: 400px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+/* 文字を重ねるエリア */
+.text-wrapper {
+    position: relative;
+    font-size: 24px;
+    text-align: left;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap; /* 自動で折り返す */
+}
+
+/* グレーの元の文字 */
+.text {
+    position: relative;
+    white-space: normal; /* 自動で折り返し */
+    overflow-wrap: break-word; /* 単語単位で折り返し */
+    word-break: break-word; /* 長すぎる単語も折り返し */
+}
+
+.gray {
+    color: lightgray;
+}
+
+/* 黒い文字（入力した部分） */
+.black {
+    color: black;
+    overflow-wrap: break-word; /* 折り返し可能に */
+}
+
+/* 入力ボックスを完全に隠す */
+#hiddenInput {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
