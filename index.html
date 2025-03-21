@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>文字入力の案</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <div class="container">
         <div class="text-wrapper" id="textArea">
-            <div id="grayText" class="text gray">あいうえおかきくけこさしすせそたちつてと</div>
+            <!-- グレー文字（ベース） -->
+            <div id="grayText" class="text gray">
+                あいうえおかきくけこさしすせそたちつてと
+            </div>
+            <!-- 黒文字（入力内容 or 終了メッセージ） -->
             <div id="blackText" class="text black"></div>
         </div>
-        <!-- 画面上では非表示にする入力ボックス -->
-        <input type="text" id="hiddenInput" maxlength="20">
+        <input type="text" id="hiddenInput" maxlength="20" />
     </div>
     <script src="script.js"></script>
 </body>
