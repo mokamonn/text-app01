@@ -26,3 +26,4 @@ document.addEventListener("DOMContentLoaded", function () {
         hiddenInput.disabled = true; // 入力無効化
     }, 60000); // 60000ミリ秒 = 60秒
 });
+//更新方法確認
