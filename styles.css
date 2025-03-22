@@ -38,6 +38,8 @@ body {
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap; /* ✅ 自動で折り返す */
 }
 
 /* グレーの文字 */
@@ -46,8 +48,10 @@ body {
     top: 0;
     left: 0;
     color: lightgray;
-    white-space: nowrap;
-    z-index: 0; /* 下に配置 */
+    overflow-wrap: break-word; /* ✅ 単語単位で折り返す */
+    word-break: break-word; /* ✅ 単語の途中でも折り返す */
+    white-space: normal; /* ✅ 自動で改行 */
+    z-index: 0;
 }
 
 /* 黒い文字（入力された部分） */
@@ -56,9 +60,10 @@ body {
     top: 0;
     left: 0;
     color: black;
-    white-space: nowrap;
-    z-index: 1; /* 上に配置 */
-    overflow: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    z-index: 1;
 }
 
 /* 入力ボックスを完全に隠す */
