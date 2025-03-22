@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
         page1.classList.remove('active');
         page2.classList.add('active');
 
+        // 入力用のテキストをセット
+        const originalText = "あいうえおかきくけこさしすせそたちつてと";
+        grayText.textContent = originalText;
+
         // キーボードを開く
         textArea.addEventListener("click", function () {
             if (!hiddenInput.disabled) {
@@ -50,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // 入力内容を表示
                 resultText.textContent = hiddenInput.value || "（未入力）";
             }, 3000);
-        }, 60000);
+        }, 60000); // 60秒
     });
 
     // 🌟 再スタートボタン

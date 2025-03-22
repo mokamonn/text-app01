@@ -38,25 +38,27 @@ body {
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
 }
 
-/* グレーの元の文字 */
-.text {
-    position: relative;
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
+/* グレーの文字 */
 .gray {
+    position: absolute;
+    top: 0;
+    left: 0;
     color: lightgray;
+    white-space: nowrap;
+    z-index: 0; /* 下に配置 */
 }
 
-/* 黒い文字（入力した部分） */
+/* 黒い文字（入力された部分） */
 .black {
+    position: absolute;
+    top: 0;
+    left: 0;
     color: black;
+    white-space: nowrap;
+    z-index: 1; /* 上に配置 */
+    overflow: hidden;
 }
 
 /* 入力ボックスを完全に隠す */
