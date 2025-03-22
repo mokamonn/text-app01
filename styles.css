@@ -30,40 +30,35 @@ body {
     text-align: center;
 }
 
-/* 文字を重ねるエリア */
+/* ✅ 文字を重ねるエリアを grid で配置 */
 .text-wrapper {
+    display: grid;
     position: relative;
     font-size: 24px;
     text-align: left;
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap; /* ✅ 自動で折り返す */
 }
 
 /* グレーの文字 */
 .gray {
-    position: absolute;
-    top: 0;
-    left: 0;
     color: lightgray;
+    white-space: normal;
     overflow-wrap: break-word; /* ✅ 単語単位で折り返す */
     word-break: break-word; /* ✅ 単語の途中でも折り返す */
-    white-space: normal; /* ✅ 自動で改行 */
-    z-index: 0;
+    grid-column: 1;
+    grid-row: 1;
 }
 
 /* 黒い文字（入力された部分） */
 .black {
-    position: absolute;
-    top: 0;
-    left: 0;
     color: black;
+    white-space: normal;
     overflow-wrap: break-word;
     word-break: break-word;
-    white-space: normal;
-    z-index: 1;
+    grid-column: 1;
+    grid-row: 1;
 }
 
 /* 入力ボックスを完全に隠す */
