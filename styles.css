@@ -10,9 +10,20 @@ body {
     background-color: #fff;
 }
 
+/* ページの非表示設定 */
+.page {
+    display: none;
+    text-align: center;
+}
+
+/* 表示されるページ */
+.active {
+    display: block;
+}
+
 /* スマホサイズの枠 */
 .container {
-    width: 90%; /* 画面の90%に収める */
+    width: 90%;
     max-width: 400px;
     padding: 10px;
     background-color: white;
@@ -27,27 +38,25 @@ body {
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
-    overflow-wrap: break-word; /* 折り返し対応 */
-    word-break: break-word; /* 単語の途中でも折り返し */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* グレーの元の文字 */
 .text {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     white-space: normal;
     overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .gray {
     color: lightgray;
 }
 
-/* 黒い文字（入力した部分 or 終了メッセージ） */
+/* 黒い文字（入力した部分） */
 .black {
     color: black;
-    pointer-events: none; /* 入力を無効化 */
 }
 
 /* 入力ボックスを完全に隠す */
@@ -60,3 +69,18 @@ body {
     opacity: 0;
     pointer-events: none;
 }
+
+/* ボタンスタイル */
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #45a049;
+    }
