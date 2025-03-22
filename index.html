@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文字入力の案</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="text-wrapper" id="textArea">
-            <!-- グレー文字（ベース） -->
-            <div id="grayText" class="text gray">
-                あいうえおかきくけこさしすせそたちつてと
-            </div>
-            <!-- 黒文字（入力内容 or 終了メッセージ） -->
-            <div id="blackText" class="text black"></div>
-        </div>
-        <input type="text" id="hiddenInput" maxlength="20" />
+    <!-- 🌟 1ページ目 -->
+    <div class="page" id="page1">
+        <h1>文字入力アプリ</h1>
+        <p>次のページに進むとグレーの文章が表示されます。それに従って文字を入力してください。</p>
+        <button id="startButton">始める</button>
     </div>
+
+    <!-- 🌟 2ページ目（文字入力ページ） -->
+    <div class="page" id="page2">
+        <div class="container">
+            <div class="text-wrapper" id="textArea">
+                <div id="grayText" class="text gray">あいうえおかきくけこさしすせそたちつてと</div>
+                <div id="blackText" class="text black"></div>
+            </div>
+            <input type="text" id="hiddenInput" maxlength="20">
+        </div>
+    </div>
+
+    <!-- 🌟 3ページ目（終了ページ） -->
+    <div class="page" id="page3">
+        <h1>終了です</h1>
+        <p>お疲れ様でした！</p>
+    </div>
+
+    <!-- 🌟 4ページ目（結果ページ） -->
+    <div class="page" id="page4">
+        <h1>結果</h1>
+        <p>入力した文字：</p>
+        <p id="resultText"></p>
+        <button id="restartButton">最初に戻る</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
