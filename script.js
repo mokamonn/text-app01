@@ -1,3 +1,6 @@
+// 🌟 dotenvで環境変数を読み込み
+require('dotenv').config();
+
 document.addEventListener("DOMContentLoaded", function () {
     const hiddenInput = document.getElementById("hiddenInput");
     const blackText = document.getElementById("blackText");
@@ -55,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const charCount = hiddenInput.value.length;
                 resultText.textContent = `${charCount} 文字`;
 
-                // 🌟 CSVデータ生成 & ダウンロード
+                // 🌟 CSVデータ生成 & GitHubにアップロード
                 createAndSaveCSV(charCount);
             }, 3000);
         }, 60000); // 60秒
@@ -70,46 +73,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const csvContent = `日時,入力文字数\n${now.toLocaleString()},${charCount}\n`;
 
-        // BlobでCSVファイルを作成
+        // 🌟 ローカルにCSV保存
         const blob = new Blob([csvContent], { type: 'text/csv' });
         const url = URL.createObjectURL(blob);
-
-        // ダウンロードリンクを自動生成
         const a = document.createElement('a');
         a.href = url;
-        a.download = `${fileName}.csv`; // 🌟 ファイル名を「YYYYMMDDHHMM.csv」に
+        a.download = `${fileName}.csv`;
         document.body.appendChild(a);
         a.click();
-
-        // 不要になったURLを解放
         URL.revokeObjectURL(url);
 
-        // 🌟 GitHubに自動アップロード（GitHub Actions を使う）
+        // 🌟 GitHubにアップロード
         uploadToGitHub(csvContent, fileName);
     }
 
     // 🌟 GitHubへのアップロード関数
     async function uploadToGitHub(content, fileName) {
-        const token = 'GITHUB_TOKEN'; // GitHubのトークンをセット
-        const repo = 'ユーザー名/リポジトリ名';
-        const path = `results/${fileName}.csv`;
+        const token = process.env.GITHUB_TOKEN; // 🌟 環境変数からPATを取得
+        const repo = 'mokamonn/text-app01'; // 🌟 ユーザー名/リポジトリ名
+        const path = `results/${fileName}.csv`; // 🌟 アップロード先のパス
 
-        const response = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
-            method: 'PUT',
-            headers: {
-                'Authorization': `token ${token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                message: '入力結果をアップロード',
-                content: btoa(unescape(encodeURIComponent(content))) // Base64エンコード
-            })
-        });
+        try {
+            const response = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: 'Upload CSV file',
+                    content: btoa(unescape(encodeURIComponent(content))) // Base64エンコード
+                })
+            });
 
-        if (response.ok) {
-            console.log('✅ GitHubへのアップロード成功');
-        } else {
-            console.error('❌ GitHubへのアップロード失敗:', await response.json());
+            if (response.ok) {
+                console.log('✅ GitHubへのアップロード成功');
+            } else {
+                const error = await response.json();
+                console.error('❌ GitHubへのアップロード失敗:', error);
+            }
+        } catch (error) {
+            console.error('❌ エラー発生:', error);
         }
     }
 

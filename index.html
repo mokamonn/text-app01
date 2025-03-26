@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文字入力の案</title>
+    <title>文字入力アプリ</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- 🌟 1ページ目 -->
-    <div class="page" id="page1">
+    <!-- 🌟 1ページ目: 説明ページ + 開始ボタン -->
+    <div class="page" id="startPage">
         <h1>文字入力アプリ</h1>
-        <p>次のページに進むとグレーの文章が表示されます。それに従って文字を入力してください。</p>
-        <button id="startButton">始める</button>
+        <p>ボタンを押すと入力が始まります。</p>
+        <button id="startButton">開始</button>
     </div>
 
-    <!-- 🌟 2ページ目（文字入力ページ） -->
+    <!-- 🌟 2ページ目: 文字入力 + 黒画面（途中で表示） -->
     <div class="page" id="page2">
         <div class="container">
             <div class="text-wrapper" id="textArea">
@@ -25,18 +25,16 @@
         </div>
     </div>
 
-    <!-- 🌟 3ページ目（終了ページ） -->
-    <div class="page" id="page3">
+    <!-- 🌟 3ページ目: 終了画面 -->
+    <div class="page" id="endPage">
         <h1>終了です</h1>
-        <p>お疲れ様でした！</p>
+        <p>3秒後に結果が表示されます。</p>
     </div>
 
-    <!-- 🌟 4ページ目（結果ページ） -->
-    <div class="page" id="page4">
+    <!-- 🌟 4ページ目: 結果表示ページ -->
+    <div class="page" id="resultPage">
         <h1>結果</h1>
-        <p>入力した文字：</p>
-        <p id="resultText"></p>
-        <button id="restartButton">最初に戻る</button>
+        <p>入力した文字数: <span id="resultText"></span> 文字</p>
     </div>
 
     <script src="script.js"></script>
