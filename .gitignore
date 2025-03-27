@@ -361,3 +361,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# node_modules は無視
+node_modules/
+
+# 環境変数ファイルは無視
+.env
+
+# CSVファイルはGitHubにプッシュしない（GitHubアップロードはAPIで行う）
+results/*.csv
