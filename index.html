@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>文字入力テスト</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文字入力アプリ</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- ページ1：説明 -->
-  <div id="page1" class="page">
+  <!-- ページ1: 説明 -->
+  <div id="page1" class="page active">
     <h1>説明ページ</h1>
-    <p>これから文字入力のテストを開始します。</p>
-    <button id="startButton">開始</button>
+    <p>このアプリでは、文字を入力してCSVとして保存することができます。</p>
+    <button onclick="goToPage(2)">はじめる</button>
   </div>
 
-  <!-- ページ2：入力 -->
+  <!-- ページ2: 入力 -->
   <div id="page2" class="page">
     <h1>文字入力ページ</h1>
-    <div id="grayText" class="gray"></div>
-    <div id="blackText" class="black"></div>
-    <textarea id="hiddenInput" rows="1" cols="30"></textarea>
-    <div id="textArea">ここをタップして入力開始</div>
+
+    <div class="text-overlay-container">
+      <div id="grayText" class="gray-text">あいうえおかきくけこさしすせそたちつてと</div>
+      <div id="blackText" class="black-text"></div>
+    </div>
+
+    <textarea id="hiddenInput" class="hidden-input" rows="1"></textarea>
+
+    <div id="textArea" class="touch-area" onclick="focusInput()">ここをタップして入力開始</div>
+    <button onclick="goToPage(3)">入力完了</button>
   </div>
 
-  <!-- ページ3：終了 -->
+  <!-- ページ3: 完了 -->
   <div id="page3" class="page">
-    <h1>終了</h1>
-    <p>入力を終了しました。</p>
-  </div>
-
-  <!-- ページ4：結果 -->
-  <div id="page4" class="page">
-    <h1>結果ページ</h1>
-    <p id="resultText">ここに結果が表示されます。</p>
-    <button id="restartButton">もう一度やる</button>
+    <h1>完了ページ</h1>
+    <p>お疲れさまでした！CSVが生成されました。</p>
+    <a id="downloadLink" href="#" download>CSVをダウンロード</a>
   </div>
 
   <script src="script.js"></script>
