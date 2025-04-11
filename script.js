@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const hiddenInput = document.getElementById("hiddenInput");
     const blackText = document.getElementById("blackText");
     const grayText = document.getElementById("grayText");
-    const textArea = document.getElementById("textArea");
     const resultText = document.getElementById("resultText");
+    const downloadLink = document.getElementById("downloadLink");
   
     const startButton = document.getElementById("startButton");
     const restartButton = document.getElementById("restartButton");
@@ -13,16 +13,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const page3 = document.getElementById("page3");
     const page4 = document.getElementById("page4");
   
+    const textOverlay = document.getElementById("textOverlay");
+  
     const originalText = "あいうえおかきくけこさしすせそたちつてと";
   
-    // 最初のページ表示
-    page1.classList.add('active');
+    // 最初のページを表示
+    page1.classList.add("active");
   
     startButton.addEventListener("click", function () {
-      page1.classList.remove('active');
-      page2.classList.add('active');
-      grayText.textContent = originalText;
+      page1.classList.remove("active");
+      page2.classList.add("active");
   
+      grayText.textContent = originalText;
       hiddenInput.disabled = false;
       hiddenInput.value = "";
       blackText.textContent = "";
@@ -33,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   
       // タップでフォーカス
-      textArea.addEventListener("click", function () {
+      textOverlay.addEventListener("click", function () {
         if (!hiddenInput.disabled) {
           hiddenInput.focus();
         }
@@ -41,17 +43,17 @@ document.addEventListener("DOMContentLoaded", function () {
   
       // 60秒後に終了ページへ
       setTimeout(function () {
-        page2.classList.remove('active');
-        page3.classList.add('active');
+        page2.classList.remove("active");
+        page3.classList.add("active");
   
         hiddenInput.disabled = true;
         grayText.textContent = "終了です";
         blackText.textContent = "";
   
-        // 3秒後に最終ページ
+        // 3秒後に結果ページへ
         setTimeout(function () {
-          page3.classList.remove('active');
-          page4.classList.add('active');
+          page3.classList.remove("active");
+          page4.classList.add("active");
   
           const charCount = hiddenInput.value.length;
           resultText.textContent = `${charCount} 文字入力されました。`;
@@ -61,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
     restartButton.addEventListener("click", function () {
-      page4.classList.remove('active');
-      page1.classList.add('active');
+      page4.classList.remove("active");
+      page1.classList.add("active");
     });
   
     function createAndDownloadCSV(charCount) {
@@ -76,9 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const blob = new Blob([BOM, headers + dataLine], { type: "text/csv;charset=utf-8;" });
   
       const url = URL.createObjectURL(blob);
-      const a = document.getElementById("downloadLink");
-      a.href = url;
-      a.download = `${fileName}.csv`;
+      downloadLink.href = url;
+      downloadLink.download = `${fileName}.csv`;
     }
   });
   
