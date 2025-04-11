@@ -1,4 +1,4 @@
-/* 全体スタイル */
+/* 全体共通のスタイル */
 body {
     font-family: sans-serif;
     margin: 0;
@@ -8,16 +8,16 @@ body {
     text-align: center;
   }
   
+  /* ページ切り替え用 */
   .page {
     display: none;
     padding: 30px 20px;
   }
-  
   .page.active {
     display: block;
   }
   
-  /* ボタン */
+  /* ボタンスタイル */
   button {
     font-size: 1.2em;
     padding: 10px 20px;
@@ -25,17 +25,16 @@ body {
     cursor: pointer;
   }
   
-  /* テキスト表示用コンテナ */
+  /* テキストの重ね合わせ用のコンテナ */
   .text-overlay-container {
     position: relative;
-    width: 100%;
-    min-height: 3em;
-    margin: 50px auto;
+    width: fit-content;         /* 文字数に合わせた幅に調整 */
+    margin: 50px auto;          /* 横は中央、縦は少し下げる */
     padding: 10px;
     box-sizing: border-box;
   }
   
-  /* グレーの文字（お手本） */
+  /* グレーのベース文字（見本） */
   .gray-text {
     position: absolute;
     top: 0;
@@ -43,13 +42,16 @@ body {
     white-space: pre-wrap;
     font-size: 2em;
     line-height: 1.5;
-    font-family: sans-serif;
-    width: 100%;
+    font-family: monospace;     /* モノスペースで文字幅を揃える */
     color: #ccc;
     pointer-events: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0;
   }
   
-  /* 黒文字（入力） */
+  /* 黒文字（ユーザー入力） */
   .black-text {
     position: absolute;
     top: 0;
@@ -57,21 +59,22 @@ body {
     white-space: pre-wrap;
     font-size: 2em;
     line-height: 1.5;
-    font-family: sans-serif;
-    width: 100%;
+    font-family: monospace;
     color: #000;
     pointer-events: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0;
   }
   
-  /* 非表示テキストエリア（スマホ対応） */
+  /* テキスト入力フィールド（非表示で使う） */
   .hidden-input {
+    opacity: 0;
     position: absolute;
-    opacity: 0.01;
-    width: 100%;
-    height: 3em;
-    font-size: 1em;
-    border: none;
-    background: transparent;
-    z-index: 1;
+    z-index: -1;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
   }
   
