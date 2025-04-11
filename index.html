@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文字入力アプリ</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>文字入力テスト</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- 🌟 1ページ目: 説明ページ + 開始ボタン -->
-    <div class="page" id="startPage">
-        <h1>文字入力アプリ</h1>
-        <p>ボタンを押すと入力が始まります。</p>
-        <button id="startButton">開始</button>
-    </div>
+  <!-- ページ1：説明 -->
+  <div id="page1" class="page">
+    <h1>説明ページ</h1>
+    <p>これから文字入力のテストを開始します。</p>
+    <button id="startButton">開始</button>
+  </div>
 
-    <!-- 🌟 2ページ目: 文字入力 + 黒画面（途中で表示） -->
-    <div class="page" id="page2">
-        <div class="container">
-            <div class="text-wrapper" id="textArea">
-                <div id="grayText" class="text gray">あいうえおかきくけこさしすせそたちつてと</div>
-                <div id="blackText" class="text black"></div>
-            </div>
-            <input type="text" id="hiddenInput" maxlength="20">
-        </div>
-    </div>
+  <!-- ページ2：入力 -->
+  <div id="page2" class="page">
+    <h1>文字入力ページ</h1>
+    <div id="grayText" class="gray"></div>
+    <div id="blackText" class="black"></div>
+    <textarea id="hiddenInput" rows="1" cols="30"></textarea>
+    <div id="textArea">ここをタップして入力開始</div>
+  </div>
 
-    <!-- 🌟 3ページ目: 終了画面 -->
-    <div class="page" id="endPage">
-        <h1>終了です</h1>
-        <p>3秒後に結果が表示されます。</p>
-    </div>
+  <!-- ページ3：終了 -->
+  <div id="page3" class="page">
+    <h1>終了</h1>
+    <p>入力を終了しました。</p>
+  </div>
 
-    <!-- 🌟 4ページ目: 結果表示ページ -->
-    <div class="page" id="resultPage">
-        <h1>結果</h1>
-        <p>入力した文字数: <span id="resultText"></span> 文字</p>
-    </div>
+  <!-- ページ4：結果 -->
+  <div id="page4" class="page">
+    <h1>結果ページ</h1>
+    <p id="resultText">ここに結果が表示されます。</p>
+    <button id="restartButton">もう一度やる</button>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
