@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const now = new Date();
         const fileName = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}`;
 
-        const headers = "Time,文字数\n";
+        const headers = "時間,文字数\n";
         const dataLine = `${now.toLocaleString()},${charCount}\n`;
 
         const BOM = new Uint8Array([0xEF, 0xBB, 0xBF]); // UTF-8 BOM
