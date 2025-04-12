@@ -24,22 +24,23 @@ button {
 
 .container {
   width: 90%;
-  max-width: 400px;
+  max-width: 600px;
   padding: 20px;
   margin: 0 auto;
-  border: 2px solid #000;
-  border-radius: 10px;
-  background-color: #fff;
+  background-color: transparent; /* 背景透明 */
+  border: none; /* 枠なし */
+  box-shadow: none; /* 影も消す */
 }
 
+/* 入力部分（上の文字） */
 .text-wrapper {
   position: relative;
   font-size: 24px;
   text-align: left;
-  height: 2.5em;
+  min-height: 4em;
   margin-bottom: 20px;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: normal; /* 折り返しを許可 */
+  word-break: break-word;
 }
 
 .gray {
@@ -48,6 +49,9 @@ button {
   top: 0;
   left: 0;
   pointer-events: none;
+  white-space: normal;
+  word-break: break-word;
+  width: 100%;
 }
 
 .black {
@@ -56,14 +60,18 @@ button {
   top: 0;
   left: 0;
   pointer-events: none;
-  overflow: hidden;
+  white-space: normal;
+  word-break: break-word;
+  width: 100%;
 }
 
+/* 入力欄の見た目を消す */
 input[type="text"] {
   width: 100%;
   font-size: 24px;
-  padding: 10px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 5px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  caret-color: black;
 }
