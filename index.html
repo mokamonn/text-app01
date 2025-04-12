@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>文字入力アプリ</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <!-- ページ1: 説明 -->
   <div id="page1" class="page active">
     <h1>説明</h1>
@@ -16,11 +17,13 @@
 
   <!-- ページ2: 入力 -->
   <div id="page2" class="page">
-    <div class="text-overlay-container" id="textOverlay">
-      <div id="grayText" class="gray-text">あいうえおかきくけこさしすせそたちつてと</div>
-      <div id="blackText" class="black-text"></div>
+    <div class="container">
+      <div class="text-wrapper">
+        <div id="grayText" class="gray">あいうえおかきくけこさしすせそたちつてと</div>
+        <div id="blackText" class="black"></div>
+      </div>
+      <input type="text" id="inputField" autocomplete="off" autofocus>
     </div>
-    <textarea id="hiddenInput" class="hidden-input" rows="1"></textarea>
   </div>
 
   <!-- ページ3: 一時完了 -->
@@ -32,9 +35,7 @@
   <!-- ページ4: 完了 -->
   <div id="page4" class="page">
     <h1>完了ページ</h1>
-    <p>お疲れさまでした！CSVが生成されました。</p>
     <p id="resultText"></p>
-    <a id="downloadLink" href="#" download>CSVをダウンロード</a><br>
     <button id="restartButton">もう一度やる</button>
   </div>
 

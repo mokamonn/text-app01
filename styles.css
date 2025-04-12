@@ -1,14 +1,11 @@
-/* 全体の共通スタイル */
 body {
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
+  text-align: center;
   margin: 0;
   padding: 0;
   background-color: #fff;
-  color: #000;
-  text-align: center;
 }
 
-/* ページ表示制御 */
 .page {
   display: none;
   padding: 30px 20px;
@@ -18,7 +15,6 @@ body {
   display: block;
 }
 
-/* ボタン共通スタイル */
 button {
   font-size: 1.2em;
   padding: 10px 20px;
@@ -26,51 +22,48 @@ button {
   cursor: pointer;
 }
 
-/* 入力ゾーンのコンテナ */
-.text-overlay-container {
-  position: relative;
+.container {
   width: 90%;
-  max-width: 800px;
-  margin: 50px auto;
+  max-width: 400px;
+  padding: 20px;
+  margin: 0 auto;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.text-wrapper {
+  position: relative;
+  font-size: 24px;
+  text-align: left;
+  height: 2.5em;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.gray {
+  color: lightgray;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.black {
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+input[type="text"] {
+  width: 100%;
+  font-size: 24px;
   padding: 10px;
   box-sizing: border-box;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-/* グレーの下地文字 */
-.gray-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  font-size: 2em;
-  line-height: 1.5;
-  font-family: monospace;
-  color: #ccc;
-  pointer-events: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* 入力に応じた黒文字 */
-.black-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  font-size: 2em;
-  line-height: 1.5;
-  font-family: monospace;
-  color: #000;
-  pointer-events: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* 非表示のテキスト入力欄 */
-.hidden-input {
-  opacity: 0;
-  position: absolute;
-  z-index: -1;
+  border: 2px solid #ccc;
+  border-radius: 5px;
 }
